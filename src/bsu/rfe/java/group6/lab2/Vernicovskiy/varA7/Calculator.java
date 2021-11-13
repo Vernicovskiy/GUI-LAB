@@ -17,7 +17,7 @@ private JRadioButton func1 = new JRadioButton ("Функция №1");
     private  JTextField  mem2 = new JTextField("0",10);
     private  JTextField  mem3 = new JTextField("0",10);
     private Button resultat = new Button ("Вычислить");
-    private JLabel a1 = new JLabel ("aaaa");
+    private JLabel result = new JLabel (" ");
 
 
     public Calculator()
@@ -56,10 +56,30 @@ private JRadioButton func1 = new JRadioButton ("Функция №1");
  resultat.addActionListener(new ActionListener() {
      @Override
      public void actionPerformed(ActionEvent e) {
+try {
+    if (func1.isSelected()) {
+        double x = Double.parseDouble(mem1.getText());
+        double y = Double.parseDouble(mem2.getText());
+        double z = Double.parseDouble(mem3.getText());
 
+        result.setText( String.valueOf( function1 (x,y,z)));
 
+    }
+    else
+    {
+        double x = Double.parseDouble(mem1.getText());
+        double y = Double.parseDouble(mem2.getText());
+        double z = Double.parseDouble(mem3.getText());
 
+        result.setText( String.valueOf( function2 (x,y,z)));
+    }
 
+}
+catch (NumberFormatException ex)
+         {
+           JOptionPane.showMessageDialog( Calculator.this, "Ошибка: неправильный формат записи числа", "Error",
+                   JOptionPane.WARNING_MESSAGE);
+         }
      }
  });
 
